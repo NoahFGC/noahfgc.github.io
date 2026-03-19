@@ -1,0 +1,220 @@
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* ===================== BACKGROUND ===================== */
+.background {
+    position: fixed;
+    inset: 0;
+    background: url("img/arcade.png") no-repeat center/cover;
+    z-index: -1;
+    filter: brightness(0.6);
+}
+
+/* ===================== LAYOUT ===================== */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* ===================== BOX ===================== */
+.content-box {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.content-box h1 {
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+}
+
+/* ===================== CONTENT ===================== */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* LEFT / RIGHT */
+.left img {
+    max-width: 150px;
+}
+
+.right {
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* ===================== CARD ===================== */
+.card {
+    width: 300px;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.card h2 {
+    padding: 15px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* ===================== NAVBAR & FOOTER (FACTORISÉ) ===================== */
+.navbar,
+.footer {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background: rgba(20, 20, 20, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 15px 0;
+    z-index: 1000;
+}
+
+.navbar { top: 0; }
+.footer { bottom: 0; }
+
+/* LISTES (NAV + FOOTER) */
+.nav-links,
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
+}
+
+/* LIENS */
+.nav-links a,
+.footer-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.footer-links a:hover {
+    color: white;
+}
+
+/* Slash séparateur */
+.nav-links li:not(:last-child)::after,
+.footer-links li:not(:last-child)::after {
+    content: "/";
+    margin-left: 25px;
+    color: #555;
+}
+
+/* Actif */
+.nav-links a.active {
+    color: white;
+    font-weight: bold;
+}
+
+/* ===================== DIVERS ===================== */
+.search-icon {
+    font-size: 1.1rem;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+
+    .content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+
+    .right {
+        text-align: center;
+    }
+
+    .content-box {
+        padding: 25px;
+    }
+
+    .content-box h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .nav-links,
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links li::after,
+    .footer-links li::after {
+        content: "";
+    }
+}
+
+/*New*/
+.text-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: left;
+    gap: 20px;
+    padding: 20px;
+    align-items: center; 
+}
+.switch {
+    max-width: 60%;
+    height: auto;
+    margin-top: 10px;
+}
+.text-box video{
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
