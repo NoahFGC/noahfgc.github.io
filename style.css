@@ -5,7 +5,9 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    width: 100%;
+    overflow-x: hidden;
     font-family: Arial, sans-serif;
 }
 
@@ -22,9 +24,8 @@ body {
 .container {
     min-height: 100vh;
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 100px 20px 80px; /* espace navbar + footer */
 }
 
 /* ===================== BOX ===================== */
@@ -98,7 +99,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* ===================== NAVBAR & FOOTER (FACTORISÉ) ===================== */
+/* ===================== NAVBAR & FOOTER ===================== */
 .navbar,
 .footer {
     width: 100%;
@@ -113,7 +114,7 @@ body {
 .navbar { top: 0; }
 .footer { bottom: 0; }
 
-/* LISTES (NAV + FOOTER) */
+/* LINKS */
 .nav-links,
 .footer-links {
     display: flex;
@@ -123,7 +124,7 @@ body {
     list-style: none;
 }
 
-/* LIENS */
+/* LINKS STYLE */
 .nav-links a,
 .footer-links a {
     text-decoration: none;
@@ -138,7 +139,7 @@ body {
     color: white;
 }
 
-/* Slash séparateur */
+/* Slash separator */
 .nav-links li:not(:last-child)::after,
 .footer-links li:not(:last-child)::after {
     content: "/";
@@ -146,15 +147,38 @@ body {
     color: #555;
 }
 
-/* Actif */
+/* Active link */
 .nav-links a.active {
     color: white;
     font-weight: bold;
 }
 
-/* ===================== DIVERS ===================== */
-.search-icon {
-    font-size: 1.1rem;
+/* ===================== TEXT BOX ===================== */
+.text-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    text-align: left;
+}
+
+/* images */
+.switch {
+    max-width: 60%;
+    height: auto;
+    margin-top: 10px;
+}
+
+/* videos */
+.text-box video {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    object-fit: cover;
 }
 
 /* ===================== RESPONSIVE ===================== */
@@ -183,38 +207,34 @@ body {
         max-width: 350px;
     }
 
+    /* NAV MOBILE */
     .nav-links,
     .footer-links {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+    }
+
+    .nav-links a,
+    .footer-links a {
+        font-size: 0.85rem;
+        letter-spacing: 0.5px;
     }
 
     .nav-links li::after,
     .footer-links li::after {
         content: "";
     }
-}
 
-/*New*/
-.text-box {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: left;
-    gap: 20px;
-    padding: 20px;
-    align-items: center; 
-}
-.switch {
-    max-width: 60%;
-    height: auto;
-    margin-top: 10px;
-}
-.text-box video{
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 16 / 9;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    object-fit: cover;
+    .navbar,
+    .footer {
+        padding: 10px 0;
+    }
+
+    .switch {
+        max-width: 100%;
+    }
+
+    .text-box video {
+        max-width: 100%;
+    }
 }
